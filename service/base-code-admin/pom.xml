@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ywh</groupId>
+    <artifactId>base-code-admin</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <!--引入模块-->
+    <modules>
+        <module>base-admin-common</module>
+        <module>base-admin-service</module>
+        <module>base-admin-controller</module>
+        <module>base-admin-job</module>
+    </modules>
+
+
+    <!--版本控制-->
+    <properties>
+        <!--引入springboot-->
+        <spring-boot.version>2.3.2.RELEASE</spring-boot.version>
+        <spring-boot-starter.version>2.3.2.RELEASE</spring-boot-starter.version>
+        <spring-boot-starter-web.version>2.3.2.RELEASE</spring-boot-starter-web.version>
+        <!--tk.mybatis相关-->
+        <mybatis-starter.version>1.3.2</mybatis-starter.version>
+        <durid.version>1.2.5</durid.version>
+        <tk.mybatis.version>2.1.4</tk.mybatis.version>
+        <!--lombok-->
+        <lombok.version>1.18.6</lombok.version>
+        <!--common-lang3-->
+        <common.lang3.version>3.8</common.lang3.version>
+        <commons-collections4.version>4.1</commons-collections4.version>
+        <!--security-->
+        <security-oauth2.version>2.3.5.RELEASE</security-oauth2.version>
+        <jjwt.version>0.9.1</jjwt.version>
+        <!--redis-->
+        <redis-spring.version>2.3.2.RELEASE</redis-spring.version>
+        <commons-pool2.version>2.9.0</commons-pool2.version>
+        <fastjson.version>1.2.31</fastjson.version>
+        <snakeyaml.version>1.29</snakeyaml.version>
+
+        <mybatis.generator.version>1.3.7</mybatis.generator.version>
+        <pagehelper.version>1.2.12</pagehelper.version>
+        <easyexcel.version>3.0.3</easyexcel.version>
+        <poi.version>3.17</poi.version>
+        <poi-ooxml.version>3.17</poi-ooxml.version>
+    </properties>
+
+
+    <!--版本控制-->
+    <dependencyManagement>
+        <dependencies>
+            <!--spring-boot-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--引用start-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${spring-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot-starter-web.version}</version>
+            </dependency>
+
+            <!--引入mybatis-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper-spring-boot-starter</artifactId>
+                <version>${tk.mybatis.version}</version>
+            </dependency>
+
+            <!--数据源-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${durid.version}</version>
+            </dependency>
+
+            <!--实体类注解，节省代码-->
+            <!--lombok-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!--常用工具包-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${common.lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons-collections4.version}</version>
+            </dependency>
+
+
+            <!--security-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>${security-oauth2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security.oauth</groupId>
+                <artifactId>spring-security-oauth2</artifactId>
+                <version>${security-oauth2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+
+            <!--使用fastjson来操作json数据-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!--redis-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${redis-spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${commons-pool2.version}</version>
+            </dependency>
+
+            <!--读取配置文件-->
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${snakeyaml.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-core</artifactId>
+                <version>${mybatis.generator.version}</version>
+            </dependency>
+
+            <!--分页插件-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+
+            <!--easyexcel导入导出-->
+            <!--最新版本-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>easyexcel</artifactId>
+                <version>${easyexcel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi-ooxml.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+
+
+   <build>
+       <pluginManagement>
+           <plugins>
+               <plugin>
+                   <groupId>org.codehaus.mojo</groupId>
+                   <artifactId>build-helper-maven-plugin</artifactId>
+                   <version>3.1.0</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.codehaus.mojo</groupId>
+                   <artifactId>exec-maven-plugin</artifactId>
+                   <version>1.6.0</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.codehaus.mojo</groupId>
+                   <artifactId>flatten-maven-plugin</artifactId>
+                   <version>1.2.5</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.codehaus.mojo</groupId>
+                   <artifactId>versions-maven-plugin</artifactId>
+                   <version>2.7</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.codehaus.mojo</groupId>
+                   <artifactId>xml-maven-plugin</artifactId>
+                   <version>1.0.2</version>
+               </plugin>
+
+
+               <plugin>
+                   <groupId>org.flywaydb</groupId>
+                   <artifactId>flyway-maven-plugin</artifactId>
+                   <version>6.4.4</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>pl.project13.maven</groupId>
+                   <artifactId>git-commit-id-plugin</artifactId>
+                   <version>3.0.1</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.apache.johnzon</groupId>
+                   <artifactId>johnzon-maven-plugin</artifactId>
+                   <version>1.2.8</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.jooq</groupId>
+                   <artifactId>jooq-codegen-maven</artifactId>
+                   <version>3.13.4</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.jetbrains.kotlin</groupId>
+                   <artifactId>kotlin-maven-plugin</artifactId>
+                   <version>1.3.72</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-antrun-plugin</artifactId>
+                   <version>1.8</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-assembly-plugin</artifactId>
+                   <version>3.3.0</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-compiler-plugin</artifactId>
+                   <version>3.8.1</version>
+                   <configuration>
+                       <source>1.8</source>
+                       <target>1.8</target>
+                   </configuration>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-dependency-plugin</artifactId>
+                   <version>3.1.2</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-deploy-plugin</artifactId>
+                   <version>3.0.0-M1</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-enforcer-plugin</artifactId>
+                   <version>3.0.0-M3</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-failsafe-plugin</artifactId>
+                   <version>2.22.2</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-help-plugin</artifactId>
+                   <version>3.2.0</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-install-plugin</artifactId>
+                   <version>2.5.2</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-invoker-plugin</artifactId>
+                   <version>3.2.1</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-jar-plugin</artifactId>
+                   <version>3.1.0</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-javadoc-plugin</artifactId>
+                   <version>3.2.0</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-resources-plugin</artifactId>
+                   <version>3.1.0</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-shade-plugin</artifactId>
+                   <version>3.2.4</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-source-plugin</artifactId>
+                   <version>3.2.1</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-surefire-plugin</artifactId>
+                   <version>2.22.2</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-war-plugin</artifactId>
+                   <version>3.2.3</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.springframework.boot</groupId>
+                   <artifactId>spring-boot-maven-plugin</artifactId>
+                   <version>2.3.2.RELEASE</version>
+               </plugin>
+           </plugins>
+       </pluginManagement>
+
+    </build>
+</project>

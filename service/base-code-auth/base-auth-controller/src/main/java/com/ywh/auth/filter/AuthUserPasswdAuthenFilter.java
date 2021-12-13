@@ -22,7 +22,7 @@ public class AuthUserPasswdAuthenFilter extends AbstractAuthenticationProcessing
 
     public static final String SPRING_SECURITY_FORM_USERNAME_KEY = "username";
     public static final String SPRING_SECURITY_FORM_PASSWORD_KEY = "password";
-    /*定义用户登录传入的用户名和密码字段*/
+    /**定义用户登录传入的用户名和密码字段*/
     private String usernameParameter = "username";
     private String passwordParameter = "password";
     private boolean postOnly = true;
