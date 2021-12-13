@@ -5,12 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ywh</groupId>
-    <artifactId>base-code</artifactId>
+    <artifactId>base-code-auth</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <!--引入模块-->
     <modules>
+        <module>base-auth-common</module>
+        <module>base-auth-controller</module>
+        <module>base-auth-service</module>
     </modules>
 
 
