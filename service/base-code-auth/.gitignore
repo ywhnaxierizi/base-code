@@ -1,0 +1,11 @@
+*.class
+*.iml
+*.log
+*.war
+*.jar
+*.zip
+*.gitignore
+*.properties
+.idea
+classes
+*.lst
